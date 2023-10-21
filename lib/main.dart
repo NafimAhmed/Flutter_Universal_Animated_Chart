@@ -90,11 +90,20 @@ class DonutChartPainter extends CustomPainter {
   DonutChartPainter(this.dataSet, this.fullAngle);
 
   static const labelStyle = TextStyle(color: Colors.black, fontSize: 11.0);
+
+
+  final midPaint2 = Paint()
+    ..color = Colors.transparent
+    ..style = PaintingStyle.fill;
+
   final midPaint = Paint()
     ..color = Colors.white
     ..style = PaintingStyle.fill;
   static const textBigStyle = TextStyle(
       color: Colors.black, fontWeight: FontWeight.bold, fontSize: 25.0);
+
+
+
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -129,8 +138,14 @@ class DonutChartPainter extends CustomPainter {
     }
 
     canvas.drawCircle(c, radius * 0.3, midPaint);
+
+
     drawTextCentered(canvas, c, "Favourite Movie Genres", textBigStyle,
         radius * 0.5, (Size sz) {});
+
+
+
+
   }
 
   TextPainter measureText(String string, TextStyle textStyle, double maxWidth,
@@ -180,7 +195,7 @@ class DonutChartPainter extends CustomPainter {
       final rect = Rect.fromCenter(
           center: position, width: size.width + 5, height: size.height + 5);
       final rrect = RRect.fromRectAndRadius(rect, const Radius.circular(5));
-      canvas.drawRRect(rrect, midPaint);
+      canvas.drawRRect(rrect, midPaint2);
     });
   }
 
